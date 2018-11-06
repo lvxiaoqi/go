@@ -1,20 +1,22 @@
 
-ç¬¬ä¸€æ­¥ï¼š
+µÚÒ»²½£º
 
-å°†GOPATHçŽ¯å¢ƒå˜é‡è®¾ç½®åˆ°å½“å‰ç›®å½•
+½«GOPATH»·¾³±äÁ¿ÉèÖÃµ½µ±Ç°Ä¿Â¼
 
-é¡¹ç›®ç›®å½•
+ÏîÄ¿Ä¿Â¼
 
 srs
-	â€”â€”github.com		//åº“æ–‡ä»¶
-	â€”â€”project1			//é¡¹ç›®æ–‡ä»¶
-		â€”â€”conf			//é…ç½®æ–‡ä»¶
-		â€”â€”logic			//é€»è¾‘å±‚
-		â€”â€”modle			//æ¨¡åž‹å±‚
-		â€”â€”router		//è·¯ç”±å±‚
+	¡ª¡ªgithub.com		//¿âÎÄ¼þ
+	¡ª¡ªproject1			//ÏîÄ¿ÎÄ¼þ
+		¡ª¡ªconf			//ÅäÖÃÎÄ¼þ
+		¡ª¡ªlogic			//Âß¼­²ã
+		¡ª¡ªmodle			//Ä£ÐÍ²ã
+		¡ª¡ªrouter		//Â·ÓÉ²ã
 
 
-main.go		//é¡¹ç›®å…¥å£æ–‡ä»¶
+main.go		//ÏîÄ¿Èë¿ÚÎÄ¼þ
+
+
 
 
 

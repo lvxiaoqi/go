@@ -42,3 +42,12 @@ https://github.com/jinzhu/gorm
 使用的mysql驱动：
 go-sql-driver：
 https://github.com/go-sql-driver/mysql
+
+使用的redis客户端
+https://github.com/go-redis/redis
+
+使用的http请求库
+https://github.com/imroc/req
+
+
+

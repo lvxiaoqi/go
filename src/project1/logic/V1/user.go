@@ -2,12 +2,22 @@ package V1
 
 
 import (
+	"encoding/json"
 	"fmt"
+	"github.com/go-redis/redis"
+	"github.com/imroc/req"
 	"github.com/kataras/iris"
+	"io/ioutil"
 	"project1/conf"
 	"project1/model"
 )
 
+//数据返回格式
+type http_res struct {
+	Code int `json:"code"`
+	Msg  string	`json:"msg"`
+	Data interface{} `json:"data"`
+}
 
 func List(ctx iris.Context) {
 	//db := model.Conn()
@@ -59,3 +69,45 @@ func Myjson(ctx iris.Context) {
 	})
 }
 
+
+func Rget(ctx iris.Context) {
+	client := redis.NewClient(&redis.Options{
+		Addr:     "localhost:6379",
+		Password: "", // no password set
+		DB:       0,  // use default DB
+	})
+
+	err := client.Set("go_tt", "hello,world!", 0).Err()
+	if err != nil {
+		panic(err)
+	}
+
+	val, err := client.Get("go_tt").Result()
+	ctx.JSON(iris.Map{
+		"result": val,
+		"err": err,
+	})
+}
+
+func Ask(ctx iris.Context) {
+	header := req.Header{
+		"Accept":        "application/json",
+		//"Authorization": "Basic YWRtaW46YWRtaW4=",
+	}
+	param := req.Param{
+		"code": "023ghu4m1UhEkk0OTX2m1vjd4m1ghu4r",
+	}
+	// only url is required, others are optional.
+	r, _ := req.Post("https://api.sqydt.easysq.cn/api/loginByCode", header, param)
+	//ctx.WriteString(r.String())		//直接输出字符串
+	res := r.Response()
+	body,_ := ioutil.ReadAll(res.Body)
+	//ctx.Write(body)
+
+	//结构化请求结果
+	xcc := &http_res{}
+	json.Unmarshal(body,xcc)
+	print(xcc.Code)
+	ctx.JSON(xcc)
+
+}
